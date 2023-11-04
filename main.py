@@ -21,6 +21,11 @@ class Cat:
         self.gladness += 5
         self.progress -= 0.1
 
+    def to_play_pranks(self):
+        print("Time to pranks")
+        self.gladness += 5
+        self.progress += 0.005
+
     def is_alive(self):
         if self.progress < -0.5:
             print("Cast out...")
@@ -39,7 +44,7 @@ class Cat:
     def live(self, day):
         day = "Day " + str(day) + " of " + self.name + " life"
         print(f"{day:=^50}")
-        live_cube = random.randint(1, 3)
+        live_cube = random.randint(1, 4)
 
         if live_cube == 1:
             self.to_hunts()
@@ -47,6 +52,8 @@ class Cat:
             self.to_sleep()
         elif live_cube == 3:
             self.to_play_with_the_owner()
+        elif live_cube == 4:
+            self.to_play_pranks()
 
         self.end_of_play()
         self.is_alive()
